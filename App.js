@@ -1,10 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import HomeScreens from './Screens/HomeScreens';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <HomeScreens />
+      <Image source={require('./assets/icon.png')}/>
       <StatusBar style="auto" />
     </View>
   );
