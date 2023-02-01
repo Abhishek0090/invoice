@@ -2,16 +2,21 @@
 import { Button, Image, StyleSheet, Text, TouchableOpacity, View , StatusBar} from 'react-native';
 import CreateBill from './Screens/CreateBill';
 import HomeScreens from './Screens/HomeScreens';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack"; 
+
+const Stack = createNativeStackNavigator(); //for navigation
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <HomeScreens />
-      {/* <Image source={require('./assets/icon.png')} style={{ width: 100, height: 100 }} />
-      <Button title='Abhishek' onPress={() => { alert("hi bro") }} />
-      <TouchableOpacity onPress={() => { alert("hi bro") }} style={styles.button} >
-        <Text>Create Bill</Text>
-      </TouchableOpacity> */}
+       <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={HomeScreens} options={{ headerShown: false }} />
+        <Stack.Screen name="CreateBill" component={CreateBill} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  
     </View>
   );
 }
